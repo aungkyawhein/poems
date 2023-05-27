@@ -12,10 +12,12 @@ async function getData(wpAPI: string) {
 export default async function Home() {
   const numberOfPosts = 2;
   const myDomain = 'aungkyawhein.wordpress.com';
-  const wpAPI = `https://public-api.wordpress.com/rest/v1.1/sites/${myDomain}/posts?number=${numberOfPosts}&pretty=true`;
-  const data = await getData(wpAPI);
+  const wpAPI = `https://public-api.wordpress.com/rest/v1.1/sites/${myDomain}/`;
+  const apiPostsAll = wpAPI + `posts`;
+  const apiPosts = wpAPI + `posts?number=${numberOfPosts}&pretty=true`;
+  const data = await getData(apiPostsAll);
 
-  const renderMarkdownToHTML = function (htmldata: any) {
+  const renderMarkdownToHTML = (htmldata: any) => {
     return { __html: htmldata };
   };
 
@@ -35,7 +37,7 @@ export default async function Home() {
           {
             data.posts.map((poem: any) => (
               <div key={poem.ID} className="mt-7 group rounded-lg border border-transparent px-5 py-5 transition-colors border-gray-300 bg-gray-100 dark:border-neutral-700 dark:bg-neutral-800/30">
-                <h2 className={`py-5 text-2xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500`}>
+                <h2 className={`inline-block py-5 text-2xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500`}>
                   {poem.title}
                 </h2>
                 <div className={`mt-3 max-w-[30ch] text-sm opacity-50 leading-6`}
