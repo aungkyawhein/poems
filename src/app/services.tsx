@@ -1,10 +1,11 @@
-export async function getData() {
-  const numberOfPosts = 2;
+export async function fetchPosts(next_page: string) {
+  const numberOfPosts = 10;
   const myDomain = 'aungkyawhein.wordpress.com';
-  const wpAPI = `https://public-api.wordpress.com/rest/v1.1/sites/${myDomain}/`;
-  const apiPostsAll = wpAPI + `posts`;
-  const apiPosts = wpAPI + `posts?number=${numberOfPosts}&pretty=true`;
-  const res = await fetch(apiPostsAll);
+  const base = `https://public-api.wordpress.com/rest/v1.1/sites/${myDomain}`;
+  const params = `/posts?number=${numberOfPosts}&pretty=true&page_handle=${next_page}`;
+  const api = base + params;
+
+  const res = await fetch(api);
 
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary

@@ -1,3 +1,5 @@
+import { renderMarkdownToHTML } from "../utils";
+
 export default function Post({
   title,
   content
@@ -5,9 +7,6 @@ export default function Post({
   title: string,
   content: string
 }) {
-  const renderMarkdownToHTML = (htmldata: any) => {
-    return { __html: htmldata };
-  };
 
   return (
     <div className="mt-7 group rounded-lg border border-transparent px-5 py-5 transition-colors border-gray-300 bg-gray-100 dark:border-neutral-700 dark:bg-neutral-800/30">
