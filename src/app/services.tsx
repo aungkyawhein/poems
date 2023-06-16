@@ -1,5 +1,5 @@
 export async function fetchPosts(next_page: string) {
-  const numberOfPosts = 10;
+  const numberOfPosts = 100;
   const myDomain = 'aungkyawhein.wordpress.com';
   const base = `https://public-api.wordpress.com/rest/v1.1/sites/${myDomain}`;
   const params = `/posts?number=${numberOfPosts}&pretty=true&page_handle=${next_page}`;
