@@ -1,3 +1,3 @@
-export function renderMarkdownToHTML(htmldata: any) {
+export function renderHTML(htmldata: any) {
   return { __html: htmldata };
 }

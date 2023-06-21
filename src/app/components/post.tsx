@@ -1,4 +1,4 @@
-import { renderMarkdownToHTML } from "../utils";
+import { renderHTML } from "../utils";
 
 export default function Post({
   title,
@@ -14,7 +14,7 @@ export default function Post({
         {title}
       </h2>
       <div className={`mt-3 max-w-[30ch] text-sm opacity-50 leading-6`}
-        dangerouslySetInnerHTML={renderMarkdownToHTML(content)}
+        dangerouslySetInnerHTML={renderHTML(content)}
       >
       </div>
     </div>
