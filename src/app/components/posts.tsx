@@ -9,7 +9,7 @@ export default async function Posts() {
     <div className="grid">
       {
         data.posts.map((poem: any) => (
-          <Post key={poem.ID} title={poem.title} content={poem.content} />
+          <Post key={poem.ID} title={poem.title} content={poem.content} date={poem.date} />
         ))
       }
     </div>
