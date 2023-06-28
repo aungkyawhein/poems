@@ -3,25 +3,22 @@ import Posts from "./components/posts";
 
 export default function Home() {
   const backgroundClassNames = [
-    'before:absolute',
-    'before:h-[300px]',
-    'before:w-[480px]',
-    'before:-translate-x-1/2',
+    'before:fixed',
+    'before:h-1/2',
+    'before:w-1/2',
     'before:rounded-full',
     'before:bg-gradient-radial',
-    'before:from-white',
-    'before:to-transparent',
+    'before:from-pink-500',
+    'before:to-violet-500',
     'before:blur-2xl',
     "before:content-['']",
-    'before:dark:bg-gradient-to-br',
-    'before:dark:from-transparent',
-    'before:dark:to-blue-700',
-    'before:dark:opacity-10',
-    'before:lg:h-[360px]',
-    'after:absolute',
+    'before:opacity-10',
+    'after:fixed',
+    'after:bottom-0',
+    'after:right-0',
     'after:-z-20',
-    'after:h-[180px]',
-    'after:w-[240px]',
+    'after:h-1/2',
+    'after:w-1/2',
     'after:translate-x-1/3',
     'after:bg-gradient-conic',
     'after:from-sky-200',
@@ -30,7 +27,7 @@ export default function Home() {
     "after:content-['']",
     'after:dark:from-sky-900',
     'after:dark:via-[#0141ff]',
-    'after:dark:opacity-40'
+    'after:opacity-20'
   ];
 
   const alignmentClassNames = [
@@ -52,7 +49,6 @@ export default function Home() {
   ];
 
   const allClassNames = [
-    ...backgroundClassNames,
     ...alignmentClassNames,
     ...sizeClassNames,
     ...spacingClassNames
@@ -60,17 +56,27 @@ export default function Home() {
 
   let fullClassName = allClassNames.join(' ');
 
+  const mainClass = [
+    'fixed',
+    'overflow-scroll',
+    'w-full',
+    'h-full',
+    ...backgroundClassNames,
+  ].join(' ');
+
   return (
-    <main className={fullClassName}>
+    <main className={mainClass}>
 
-      <Header />
+      <div className={fullClassName}>
+        <Header />
 
-      <div className="relative pt-12 w-full place-items-center">
-        {/**
+        <div className="relative pt-12 w-full place-items-center">
+          {/**
          * https://github.com/vercel/next.js/issues/42292
          */}
-        {/* @ts-expect-error Server Component */}
-        <Posts />
+          {/* @ts-expect-error Server Component */}
+          <Posts />
+        </div>
       </div>
     </main>
   )
