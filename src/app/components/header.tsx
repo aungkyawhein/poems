@@ -1,4 +1,5 @@
 import Githubicon from "./github-icon";
+import Search from "./search";
 import Wordpressicon from "./wordpress-icon";
 
 export default function Header() {
@@ -56,8 +57,8 @@ export default function Header() {
           {
             navLinks.map((navLink) => {
               return (
-                <li key={navLink.url}>
-                  <a href={navLink.url} className="text-slate-400 hover:text-slate-600 transition-colors" target="_blank">
+                <li key={navLink.url} className="leading-none">
+                  <a href={navLink.url} className="leading-none text-slate-400 hover:text-slate-600 transition-colors" target="_blank">
                     <span className="sr-only">{navLink.title}</span>
                     {navLink.icon}
                   </a>
@@ -65,6 +66,9 @@ export default function Header() {
               )
             })
           }
+          <li className="leading-none">
+            <Search />
+          </li>
         </ul>
       </nav>
     </header>

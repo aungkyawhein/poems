@@ -44,7 +44,6 @@ export default function Home() {
 
   return (
     <main className={mainClass}>
-
       <div className={containerClass}>
         <Header />
 
