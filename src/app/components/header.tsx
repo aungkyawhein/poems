@@ -56,7 +56,7 @@ export default function Header() {
           {
             navLinks.map((navLink) => {
               return (
-                <li>
+                <li key={navLink.url}>
                   <a href={navLink.url} className="text-slate-400 hover:text-slate-600 transition-colors" target="_blank">
                     <span className="sr-only">{navLink.title}</span>
                     {navLink.icon}
