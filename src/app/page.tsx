@@ -30,31 +30,9 @@ export default function Home() {
     'after:opacity-20'
   ];
 
-  const alignmentClassNames = [
-    'flex',
-    'flex-col',
-    'items-center',
-    'justify-between'
-  ];
-
-  const sizeClassNames = [
-    'max-w-max',
-    'min-h-screen'
-  ];
-
-  const spacingClassNames = [
-    'mx-auto',
-    'p-7',
-    'lg:p-24'
-  ];
-
-  const allClassNames = [
-    ...alignmentClassNames,
-    ...sizeClassNames,
-    ...spacingClassNames
-  ];
-
-  let fullClassName = allClassNames.join(' ');
+  const containerClass = [
+    'min-h-screen',
+  ].join(' ');
 
   const mainClass = [
     'fixed',
@@ -67,16 +45,14 @@ export default function Home() {
   return (
     <main className={mainClass}>
 
-      <div className={fullClassName}>
+      <div className={containerClass}>
         <Header />
 
-        <div className="relative pt-12 w-full place-items-center">
-          {/**
+        {/**
          * https://github.com/vercel/next.js/issues/42292
          */}
-          {/* @ts-expect-error Server Component */}
-          <Posts />
-        </div>
+        {/* @ts-expect-error Server Component */}
+        <Posts />
       </div>
     </main>
   )

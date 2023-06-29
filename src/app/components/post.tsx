@@ -16,11 +16,11 @@ export default function Post({
   };
 
   const postClass = [
-    "mt-7",
+    "w-full",
     "lg:min-w-[400px]",
     "group",
     "rounded-lg",
-    "bg-gray-100",
+    "bg-gray-100/60",
     "dark:border-neutral-700",
     "dark:bg-neutral-800/30"
   ].join(' ');
@@ -28,7 +28,7 @@ export default function Post({
   const headerClass = [
     "block",
     "sticky",
-    "top-0",
+    "top-[52px]",
     "backdrop-blur-2xl",
     "rounded-t-lg",
   ].join(' ');
@@ -59,7 +59,7 @@ export default function Post({
         <h2 className={titleClass}>{title}</h2>
       </div>
       <div className={bodyClass}>
-        <div className={`mt-3 text-sm leading-6 text-neutral-400`}
+        <div className={`text-sm leading-6 text-neutral-500 dark:text-neutral-400`}
           dangerouslySetInnerHTML={renderHTML(content)}
         >
         </div>
