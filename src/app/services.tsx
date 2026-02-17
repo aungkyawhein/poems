@@ -14,3 +14,19 @@ export async function fetchPosts(next_page: string) {
 
   return res.json();
 }
+
+export async function fetchPost(slug: string) {
+  const myDomain = 'aungkyawhein.wordpress.com';
+  const base = `https://public-api.wordpress.com/rest/v1.1/sites/${myDomain}`;
+  const params = `/posts/slug:${slug}?pretty=true`;
+  const api = base + params;
+
+  const res = await fetch(api);
+
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error('Failed to fetch post');
+  }
+
+  return res.json();
+}

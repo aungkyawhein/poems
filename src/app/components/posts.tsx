@@ -10,7 +10,7 @@ export default async function Posts() {
     <div className="grid gap-y-7 px-7 pb-7 pt-[100px] relative w-full max-w-max mx-auto place-items-center">
       {
         poems.map((poem: any) => (
-          <Post key={poem.ID} title={poem.title} content={poem.content} date={poem.date} />
+          <Post key={poem.ID} title={poem.title} content={poem.content} date={poem.date} slug={poem.slug} />
         ))
       }
     </div>

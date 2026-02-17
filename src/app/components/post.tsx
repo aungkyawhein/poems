@@ -1,13 +1,18 @@
+import Link from "next/link";
 import { renderHTML } from "../utils";
 
 export default function Post({
   title,
   content,
   date,
+  slug,
+  isDetailPage = false,
 }: {
   title: string,
   content: string,
-  date: string
+  date: string,
+  slug?: string,
+  isDetailPage?: boolean
 }) {
 
   const dateStringFormat = (dateString: string) => {
@@ -53,10 +58,20 @@ export default function Post({
     "lg:pt-0"
   ].join(' ');
 
+  const titleElement = isDetailPage ? (
+    <h2 className={titleClass}>{title}</h2>
+  ) : (
+    <Link href={`/page/${slug}`}>
+      <h2 className={`${titleClass} cursor-pointer hover:opacity-80 transition-opacity`}>
+        {title}
+      </h2>
+    </Link>
+  );
+
   return (
     <div className={postClass}>
       <div className={headerClass}>
-        <h2 className={titleClass}>{title}</h2>
+        {titleElement}
       </div>
       <div className={bodyClass}>
         <div className={`text-sm leading-6 text-neutral-500 dark:text-neutral-400`}
