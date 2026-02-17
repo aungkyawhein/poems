@@ -61,7 +61,7 @@ export default function Post({
   const titleElement = isDetailPage ? (
     <h2 className={titleClass}>{title}</h2>
   ) : (
-    <Link href={`/page/${slug}`}>
+    <Link href={`/${slug}`}>
       <h2 className={`${titleClass} cursor-pointer hover:opacity-80 transition-opacity`}>
         {title}
       </h2>

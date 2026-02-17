@@ -1,5 +1,5 @@
-import Post from "../../components/post";
-import { fetchPost } from "../../services";
+import Post from "../components/post";
+import { fetchPost } from "../services";
 
 export default async function Page({ params }: { params: { slug: string } }) {
   const post = await fetchPost(params.slug);
