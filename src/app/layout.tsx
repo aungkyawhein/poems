@@ -7,6 +7,9 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata = {
   title: 'Pems - Aung Kyaw Hein',
   description: 'Whispers of the Soul',
+  icons: {
+    icon: '/favicon.png',
+  },
 }
 
 export default function RootLayout({
